@@ -137,6 +137,11 @@ app.get('/api/entity/matches', asyncHandler(async (req, res) => {
     res.json(rows);
 }));
 
+// Catch-all: serve index.html for any non-API route
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Start HTTP server
 app.listen(PORT, () => {
     console.log(`IPL Dashboard API server is running on http://localhost:${PORT}`);
