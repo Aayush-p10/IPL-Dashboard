@@ -12,14 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Add active class to clicked button
             btn.classList.add('active');
-            
+
             // If the clicked tab is inside the dropdown, also highlight the dropdown button title
-            if(btn.closest('.dropdown-content')) {
+            if (btn.closest('.dropdown-content')) {
                 dropBtn.style.color = 'var(--accent)';
             } else {
                 dropBtn.style.color = 'var(--text-muted)';
             }
-            
+
             // Show target section
             const targetId = btn.getAttribute('data-target');
             document.getElementById(targetId).classList.add('active');
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Base API URL
-    const API_BASE = "http://localhost:3000/api";
+    const API_BASE = "/api";
 
     // 2. Fetch and render functions
     async function fetchData(endpoint) {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadPointsTable() {
         const data = await fetchData('/points-table');
         const container = document.getElementById('points-table-container');
-        
+
         if (!data) {
             container.innerHTML = `<p class="error">Failed to load points table. Ensure MySQL and NodeJS server are running.</p>`;
             return;
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadPlayers() {
         const data = await fetchData('/players');
         const container = document.getElementById('players-container');
-        
+
         if (!data) {
             container.innerHTML = `<p class="error">Failed to load players.</p>`;
             return;
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadVenues() {
         const data = await fetchData('/venues');
         const container = document.getElementById('venues-container');
-        
+
         if (!data) {
             container.innerHTML = `<p class="error">Failed to load venues.</p>`;
             return;
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadTeams() {
         const data = await fetchData('/teams');
         const container = document.getElementById('teams-container');
-        
+
         if (!data) {
             container.innerHTML = `<p class="error">Failed to load teams.</p>`;
             return;
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadPlayoffs() {
         const data = await fetchData('/playoffs');
         const container = document.getElementById('playoffs-container');
-        
+
         if (!data) {
             container.innerHTML = `<p class="error">Failed to load playoff data.</p>`;
             return;
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         data.forEach(row => {
             const dateObj = new Date(row.DATE);
             const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-            
+
             html += `
                 <tr>
                     <td>${formattedDate}</td>
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!data) return c.innerHTML = '<p class="error">Error loading</p>';
         let html = '<table><thead><tr><th>ID</th><th>Date</th><th>Type</th><th>Winner</th><th>Loser</th></tr></thead><tbody>';
         data.forEach(r => {
-            const d = new Date(r.DATE).toLocaleDateString('en-US', {month:'short', day:'numeric'});
+            const d = new Date(r.DATE).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             html += `<tr><td>${r.MatchID}</td><td>${d}</td><td><span class="badge" style="background:transparent;border:1px solid rgba(255,255,255,0.2)">${r.MATCH_TYPE}</span></td><td><span class="badge">${r.WINNING_TEAM}</span></td><td><span class="badge" style="background:rgba(239,68,68,0.2);color:#f87171">${r.LOSING_TEAM}</span></td></tr>`;
         });
         c.innerHTML = html + '</tbody></table>';
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadVenues();
     loadTeams();
     loadPlayoffs();
-    
+
     // Load entities
     loadEntityPlayers();
     loadEntityTeams();
