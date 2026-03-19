@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL 2025 Data Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Abstract Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <header class="navbar glass-header">
+        <div class="container nav-content">
+            <a href="#" class="logo"><img src="images/ipl_logo.png" alt="TATA IPL 2025" class="nav-logo-img"></a>
+            <nav aria-label="Main Navigation">
+                <div class="nav-links">
+                    <button class="tab-btn active" data-target="home">Dashboard</button>
+                    
+                    <button class="tab-btn" data-target="entity-players">Players</button>
+                    <button class="tab-btn" data-target="entity-teams">Teams</button>
+                    <button class="tab-btn" data-target="entity-owners">Owners</button>
+                    <button class="tab-btn" data-target="entity-venues">Venues</button>
+                    <button class="tab-btn" data-target="entity-matches">Matches</button>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Queries <span class="arrow">▼</span></button>
+                        <div class="dropdown-content">
+                            <button class="tab-btn" data-target="points-table">1. Points Table</button>
+                            <button class="tab-btn" data-target="players">2. Player Roster</button>
+                            <button class="tab-btn" data-target="venues">3. Venues</button>
+                            <button class="tab-btn" data-target="teams">4. Franchises</button>
+                            <button class="tab-btn" data-target="playoffs">5. Playoffs</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Dashboard Home -->
+        <section id="home" class="data-section active">
+            <div class="hero-image-overlay"></div>
+            <div class="container hero-content-wrapper">
+                <div class="welcome-card glass">
+                    <div class="badge-tag"><span class="blink-dot">●</span> LIVE SEASON INTEL</div>
+                    <h2 class="hero-title">The IPL<br><span class="highlight">War Room.</span></h2>
+                    <p class="hero-subtitle">Real-time intelligence on every franchise, every player, every match. Track the season like a coach in the dugout.</p>
+                </div>
+                
+                <div class="stats-grid mt-4">
+                    <div class="stat-card glass">
+                        <div class="stat-value">10</div>
+                        <div class="stat-label">Franchises</div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-value">30</div>
+                        <div class="stat-label">Elite Players</div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Venues</div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-value">13</div>
+                        <div class="stat-label">Matches</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entities Sections -->
+        <section id="entity-players" class="data-section">
+            <div class="container">
+                <h2 class="section-title">All Players</h2>
+                <div class="table-container glass" id="entity-players-container"><div class="loader"></div></div>
+            </div>
+        </section>
+        <section id="entity-teams" class="data-section">
+            <div class="container">
+                <h2 class="section-title">All Teams</h2>
+                <div class="table-container glass" id="entity-teams-container"><div class="loader"></div></div>
+            </div>
+        </section>
+        <section id="entity-owners" class="data-section">
+            <div class="container">
+                <h2 class="section-title">All Owners</h2>
+                <div class="table-container glass" id="entity-owners-container"><div class="loader"></div></div>
+            </div>
+        </section>
+        <section id="entity-venues" class="data-section">
+            <div class="container">
+                <h2 class="section-title">All Venues</h2>
+                <div class="table-container glass" id="entity-venues-container"><div class="loader"></div></div>
+            </div>
+        </section>
+        <section id="entity-matches" class="data-section">
+            <div class="container">
+                <h2 class="section-title">All Matches</h2>
+                <div class="table-container glass" id="entity-matches-container"><div class="loader"></div></div>
+            </div>
+        </section>
+
+        <!-- Section 1 -->
+        <section id="points-table" class="data-section">
+            <div class="container">
+                <h2 class="section-title">1. Points Table</h2>
+                <p class="query-description"><strong>Query 01:</strong> To Retrieve Team Win-Loss Record</p>
+                <div class="table-container glass" id="points-table-container">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="players" class="data-section">
+            <div class="container">
+                <h2 class="section-title">2. Player Roster</h2>
+                <p class="query-description"><strong>Query 02:</strong> To Fetch Players With Their Roles</p>
+                <div class="grid-container" id="players-container">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="venues" class="data-section">
+            <div class="container">
+                <h2 class="section-title">3. Venues</h2>
+                <p class="query-description"><strong>Query 03:</strong> To Find Busiest Match Venues</p>
+                <div class="grid-container" id="venues-container">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="teams" class="data-section">
+            <div class="container">
+                <h2 class="section-title">4. Franchise Directory</h2>
+                <p class="query-description"><strong>Query 04:</strong> To Get Complete Team Profile</p>
+                <div class="grid-container" id="teams-container">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="playoffs" class="data-section">
+            <div class="container">
+                <h2 class="section-title">5. Playoff Contenders</h2>
+                <p class="query-description"><strong>Query 05:</strong> To Identify Teams Qualifying for Playoffs</p>
+                <div class="table-container glass" id="playoffs-container">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
