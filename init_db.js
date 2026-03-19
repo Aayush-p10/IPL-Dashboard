@@ -10,7 +10,7 @@ async function initializeDB() {
             host: process.env.DB_HOST || 'localhost',
             user: process.env.DB_USER || 'root',
         password: process.env.DB_PASSWORD || '',
-        ssl: { rejectUnauthorized: true },
+        ssl: { rejectUnauthorized: false },
         multipleStatements: true
         });
 
